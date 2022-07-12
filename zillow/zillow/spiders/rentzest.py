@@ -4,13 +4,18 @@ import pymongo
 from scrapy.exceptions import DropItem
 import os
 
+user = "root"
+password = "C5E01228B178C925CD0A0D6C6889BB029072"
+host = "localhost:27017"
+database = "scrapers-2022"
+
 class Database:
     def __init__(self):
-        db_name = "scrapers-2022"
-        connection_uri = "mongodb://root:9076b974c31e4678f@127.0.0.1:27017/?authSource=admin"
+        db_name = database
+        connection_uri = f'mongodb://{user}:{password}@{host}/?authSource=admin'
         client = pymongo.MongoClient(connection_uri)
-        db = client[db_name]
-        self.data_collection = db["data-07"]
+        self.db = client[db_name]
+        self.data_collection = self.db["data-07"]
 
 class ZillowPipeline:
     
@@ -59,7 +64,7 @@ class RentzestSpider(scrapy.Spider):
     username = os.environ.get("PROXY_USERNAME")
     password = os.environ.get("PROXY_PASSWORD")
 
-    max_records = 600
+    max_records = 5
     
     db = Database()
     
