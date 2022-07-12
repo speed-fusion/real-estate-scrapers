@@ -64,7 +64,7 @@ class RentzestSpider(scrapy.Spider):
     username = os.environ.get("PROXY_USERNAME")
     password = os.environ.get("PROXY_PASSWORD")
 
-    max_records = 5
+    max_records = 600
     
     db = Database()
     
