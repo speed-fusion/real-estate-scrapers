@@ -2,7 +2,7 @@ import os
 
 while True:
     try:
-        os.system("scrapy crawl property_id")
+        os.system("scrapy crawl estimates")
     except Exception as e:
         print(f'error : {str(e)}')
         
