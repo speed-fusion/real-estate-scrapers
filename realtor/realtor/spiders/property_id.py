@@ -56,7 +56,7 @@ class PropertyIdSpider(scrapy.Spider):
     username = os.environ.get("PROXY_USERNAME")
     password = os.environ.get("PROXY_PASSWORD")
     
-    max_records = 1
+    max_records = 6000
     
     db = Database()
     
