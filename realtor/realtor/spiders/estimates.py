@@ -74,7 +74,7 @@ class EstimatesSpider(scrapy.Spider):
     username = os.environ.get("PROXY_USERNAME")
     password = os.environ.get("PROXY_PASSWORD")
     
-    max_records = 1
+    max_records = 5000
     
     db = Database()
     
