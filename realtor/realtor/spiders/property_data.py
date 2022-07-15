@@ -16,6 +16,7 @@ class Database:
         client = pymongo.MongoClient(connection_uri)
         self.db = client[db_name]
         self.data_collection = self.db["data-07"]
+        self.responses = self.db["responses"]
 
         
 
