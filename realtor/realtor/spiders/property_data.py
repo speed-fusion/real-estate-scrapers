@@ -125,7 +125,7 @@ class PropertyDataSpider(scrapy.Spider):
                 LastSoldDate,LastSoldPrice = self.get_last_sold_date(listing)
                 temp["LastSoldDate"] = LastSoldDate
                 temp["LastSoldPrice"] = LastSoldPrice
-                temp["status"] = 2
+                temp["status"] = 4
                 temp["ScrapeDate"] = datetime.now()
                 
             else:
