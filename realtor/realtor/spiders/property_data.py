@@ -98,7 +98,7 @@ class PropertyDataSpider(scrapy.Spider):
         return last_sold_date,last_sold_price
     
     def start_requests(self):
-        for item in self.db.data_collection.find({"error_count":{"$lt":3},"status":3}).limit(1):
+        for item in self.db.data_collection.find({"error_count":{"$lt":3},"status":3}).limit(5000):
             url = f'https://mapi-ng.rdc.moveaws.com/api/v1/properties/{item["property_id"]}?schema=legacy&tag_version=v2&client_id=rdc_mobile_native%2C10.41.1%2Candroid'
             yield scrapy.Request(url,headers=self.headers,callback=self.parse_property_data,meta={"proxy":self.proxy,"item":item})
     
